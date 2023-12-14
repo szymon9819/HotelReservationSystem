@@ -1,0 +1,24 @@
+{
+  "preset": "psr12",
+  "rules": {
+    "blank_line_after_namespace": true,
+    "blank_line_after_opening_tag": true,
+    "combine_consecutive_issets": true,
+    "combine_consecutive_unsets": true,
+    "declare_strict_types": true,
+    "array_syntax": true,
+    "concat_space": {
+      "spacing": "one"
+    },
+    "fully_qualified_strict_types": true
+  },
+  "exclude": [
+    "bootstrap",
+    "public",
+    "resources/assets",
+    "resources/views",
+    "storage",
+    "vendor",
+    "tests/Fixtures"
+  ]
+}
