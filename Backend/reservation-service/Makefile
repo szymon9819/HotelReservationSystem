@@ -46,7 +46,7 @@ run-tests:
 	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php artisan test --parallel"
 
 before-push:
-	make pint
 	make rector
+	make pint
 	make ecs
 	make run-tests
