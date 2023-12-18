@@ -51,7 +51,7 @@ services:
         command:
             - --general-log=1
         environment:
-            MYSQL_DATABASE: test_db
+            MYSQL_DATABASE: reservation_service_test_db
             MYSQL_ROOT_PASSWORD: root
             TZ: UTC
         ports:

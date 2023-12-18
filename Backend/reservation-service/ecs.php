@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->paths([
@@ -17,4 +18,10 @@ return static function (ECSConfig $ecsConfig): void {
     ]);
 
     $ecsConfig->rule(NoUnusedImportsFixer::class);
+
+    $ecsConfig->sets([
+        SetList::COMMON,
+        SetList::CLEAN_CODE,
+        SetList::PSR_12,
+    ]);
 };

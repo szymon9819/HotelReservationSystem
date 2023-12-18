@@ -12,12 +12,10 @@ final class JsonApiResponseMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        /**
-         * @var Response $response
-         */
+        /** @var Response $response */
         $response = $next($request);
 
-        $response->headers->set('Content-Type', 'application/vnd.api+json', );
+        $response->headers->set('Content-Type', 'application/vnd.api+json');
 
         return $response;
     }

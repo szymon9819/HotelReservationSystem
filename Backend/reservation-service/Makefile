@@ -31,7 +31,7 @@ logs:
 	docker-compose exec -u php-app $(APP_CONTAINER_NAME) tail -n 100 -f storage/logs/laravel.log
 
 ecs:
-	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/ecs check --config=ecs.php"
+	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/ecs check --fix --config=ecs.php"
 
 rector:
 	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/rector process --config=rector.php"
@@ -40,7 +40,7 @@ rector-dry-run:
 	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/rector process --dry-run --config=rector.php"
 
 pint:
-	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/pint"
+	docker exec --user root $(APP_CONTAINER_NAME) /bin/bash -c "php vendor/bin/pint"
 
 run-tests:
 	docker exec --user php-app $(APP_CONTAINER_NAME) /bin/bash -c "php artisan test --parallel"
