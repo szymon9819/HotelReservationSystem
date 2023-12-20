@@ -8,11 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 final class CreateRequest extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     public function rules(): array
     {
         return [
@@ -23,11 +18,11 @@ final class CreateRequest extends FormRequest
 
     public function getName(): string
     {
-        return $this->name;
+        return $this->input('name');
     }
 
     public function getLocation(): string
     {
-        return $this->location;
+        return $this->input('location');
     }
 }

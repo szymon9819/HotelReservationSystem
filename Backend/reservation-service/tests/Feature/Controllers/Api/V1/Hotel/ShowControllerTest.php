@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Feature\Controllers\Api\V1\Hotel;
 
 use App\Models\Hotel;
-use Feature\TestCase;
+use Tests\Feature\TestCase;
 
 class ShowControllerTest extends TestCase
 {
@@ -13,12 +13,12 @@ class ShowControllerTest extends TestCase
     {
         $hotel = Hotel::factory()->create();
 
-        $response = $this->get(route('api.v1.hotels.create', [
+        $response = $this->get(route('api.v1.hotels.show', [
             'hotel' => $hotel
         ]));
 
         $response->assertOk()
-            ->assertJson([
+            ->assertJsonFragment([
                 'id' => $hotel->id,
                 'name' => $hotel->name,
                 'location' => $hotel->location,
@@ -29,7 +29,7 @@ class ShowControllerTest extends TestCase
     {
         $nonExistingHotelId = 100;
 
-        $response = $this->get(route('api.v1.hotels.create', [
+        $response = $this->get(route('api.v1.hotels.show', [
             'hotel' => $nonExistingHotelId
         ]));
 

@@ -11,9 +11,8 @@ use Illuminate\Contracts\Support\Responsable;
 
 final class DeleteController extends Controller
 {
-    public function __invoke(int $id): Responsable
+    public function __invoke(Hotel $hotel): Responsable
     {
-        $hotel = Hotel::findOrFail($id);
         $hotel->delete();
 
         return new ApiResourceDeletedSuccessfullyResponse('Hotel');

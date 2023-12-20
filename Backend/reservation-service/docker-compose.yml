@@ -51,9 +51,11 @@ services:
         command:
             - --general-log=1
         environment:
-            MYSQL_DATABASE: reservation_service_test_db
+            MYSQL_DATABASE: reservation_service_test
             MYSQL_ROOT_PASSWORD: root
             TZ: UTC
+        networks:
+            -   reservation_service_network
         ports:
             - '${FORWARD_DATABASE_TEST_PORT:-3306}:3306'
 

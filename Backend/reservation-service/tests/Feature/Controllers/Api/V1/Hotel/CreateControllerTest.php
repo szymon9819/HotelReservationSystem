@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Feature\Controllers\Api\V1\Hotel;
 
-use Feature\TestCase;
+use Symfony\Component\HttpFoundation\Response;
+use Tests\Feature\TestCase;
 
 class CreateControllerTest extends TestCase
 {
@@ -15,9 +16,9 @@ class CreateControllerTest extends TestCase
             'location' => $this->faker->city,
         ];
 
-        $response = $this->get(route('api.v1.hotels.create', $data));
+        $response = $this->post(route('api.v1.hotels.store', $data));
 
-        $response->assertOk()
+        $response->assertStatus(Response::HTTP_CREATED)
             ->assertJsonFragment($data);
     }
 }

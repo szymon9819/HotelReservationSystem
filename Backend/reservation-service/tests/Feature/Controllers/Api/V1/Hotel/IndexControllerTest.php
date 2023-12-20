@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Feature\Controllers\Api\V1\Hotel;
 
 use App\Models\Hotel;
-use Feature\TestCase;
+use Tests\Feature\TestCase;
 
 class IndexControllerTest extends TestCase
 {
@@ -15,9 +15,11 @@ class IndexControllerTest extends TestCase
     {
         Hotel::factory()->count(self::HOTEL_NUMBER)->create();
 
-        $response = $this->get(route('api.v1.hotels'));
+        $response = $this->get(route('api.v1.hotels.index',[
+            'limit' => 10,
+        ]));
 
         $response->assertOk()
-            ->assertJsonCount(self::HOTEL_NUMBER);
+            ->assertJsonCount(self::HOTEL_NUMBER, 'data');
     }
 }

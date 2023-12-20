@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Feature\Controllers\Api\V1\Hotel;
 
 use App\Models\Hotel;
-use Feature\TestCase;
+use Tests\Feature\TestCase;
 
 class DeleteControllerTest extends TestCase
 {

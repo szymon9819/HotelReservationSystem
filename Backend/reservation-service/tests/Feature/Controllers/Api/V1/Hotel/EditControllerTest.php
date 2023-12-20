@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Feature\Controllers\Api\V1\Hotel;
 
 use App\Models\Hotel;
-use Feature\TestCase;
+use Tests\Feature\TestCase;
 
 class EditControllerTest extends TestCase
 {
@@ -17,20 +17,20 @@ class EditControllerTest extends TestCase
             'location' => 'Updated Location',
         ];
 
-        $response = $this->put(route('api.v1.hotels.create', [
+        $response = $this->put(route('api.v1.hotels.update', [
             'hotel' => $hotel,
             ...$newData,
         ]));
 
         $response->assertOk()
-            ->assertJson($newData);
+            ->assertJsonFragment($newData);
     }
 
     public function test_show_returns_404_for_non_existing_hotel(): void
     {
         $nonExistingHotelId = 100;
 
-        $response = $this->put(route('api.v1.hotels.create', [
+        $response = $this->put(route('api.v1.hotels.update', [
             'hotel' => $nonExistingHotelId
         ]));
 
