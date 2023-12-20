@@ -17,8 +17,7 @@ final class IndexController extends Controller
         $hotels = Hotel::query()->paginate(
             perPage: $request->getLimit(),
             page: $request->hasPage() ? $request->getPage() : null
-        )
-        ;
+        );
 
         return HotelResource::collection($hotels);
     }
