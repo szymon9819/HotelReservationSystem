@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\RoomType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,6 +25,7 @@ final class Room extends Model
     protected $casts = [
         'availability' => 'boolean',
         'price_per_night' => 'decimal:2',
+        'room_type' => RoomType::class,
     ];
 
     public function hotel(): BelongsTo

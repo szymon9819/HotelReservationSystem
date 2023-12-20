@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Feature\Controllers\Api\V1\Hotel;
+namespace Tests\Feature\Controllers\Api\V1\Hotel;
 
 use Symfony\Component\HttpFoundation\Response;
 use Tests\Feature\TestCase;

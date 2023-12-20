@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('room_id');
             $table->date('start_date');
             $table->date('end_date');
-            $table->enum('status', ReservationStatus::getValues())->default('active');
+            $table->enum('status', ReservationStatus::getValues())->default(ReservationStatus::ACTIVE);
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
