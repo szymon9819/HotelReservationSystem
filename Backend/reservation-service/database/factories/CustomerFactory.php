@@ -7,7 +7,7 @@ namespace Database\Factories;
 use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CustomerFactory extends Factory
+final class CustomerFactory extends Factory
 {
     protected $model = Customer::class;
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\Models\User;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -115,5 +114,4 @@ return [
     */
 
     'password_timeout' => 10800,
-
 ];

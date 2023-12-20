@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use App\Models\Hotel;
 use Illuminate\Database\Seeder;
 
-class HotelSeeder extends Seeder
+final class HotelSeeder extends Seeder
 {
     public function run(): void
     {

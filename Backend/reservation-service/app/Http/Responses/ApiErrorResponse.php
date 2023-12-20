@@ -20,6 +20,13 @@ final readonly class ApiErrorResponse implements Responsable
 
     public function toResponse($request): Response
     {
-        return new JsonResponse(['title' => $this->title, 'description' => $this->description, 'status' => $this->status,], $this->status, );
+        return new JsonResponse(
+            [
+                'title' => $this->title,
+                'description' => $this->description,
+                'status' => $this->status,
+            ],
+            $this->status,
+        );
     }
 }

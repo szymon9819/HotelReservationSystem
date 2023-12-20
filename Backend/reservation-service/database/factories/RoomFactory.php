@@ -9,7 +9,7 @@ use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RoomFactory extends Factory
+final class RoomFactory extends Factory
 {
     protected $model = Room::class;
 
