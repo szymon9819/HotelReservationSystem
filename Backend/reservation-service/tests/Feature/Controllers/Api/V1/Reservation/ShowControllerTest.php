@@ -25,7 +25,7 @@ class ShowControllerTest extends TestCase
         ]);
     }
 
-    public function test_show_returns_404_for_non_existing_hotel(): void
+    public function test_show_returns_404_for_non_existing_reservation(): void
     {
         $nonExistingReservationId = 100;
 
