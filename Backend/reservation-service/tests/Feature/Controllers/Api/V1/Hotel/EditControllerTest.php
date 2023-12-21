@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Feature\Controllers\Api\V1\Hotel;
+namespace Tests\Feature\Controllers\Api\V1\Hotel;
 
 use App\Models\Hotel;
 use Tests\Feature\TestCase;
 
 class EditControllerTest extends TestCase
 {
-    public function test_show_returns_single_hotel(): void
+    public function test_edit_returns_single_hotel(): void
     {
         $hotel = Hotel::factory()->create();
         $newData = [
@@ -26,7 +26,7 @@ class EditControllerTest extends TestCase
             ->assertJsonFragment($newData);
     }
 
-    public function test_show_returns_404_for_non_existing_hotel(): void
+    public function test_edit_returns_404_for_non_existing_hotel(): void
     {
         $nonExistingHotelId = 100;
 

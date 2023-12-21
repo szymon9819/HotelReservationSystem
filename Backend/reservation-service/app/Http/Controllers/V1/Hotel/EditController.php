@@ -9,13 +9,11 @@ use App\Http\Requests\V1\Hotel\EditRequest;
 use App\Http\Resources\V1\HotelResource;
 use App\Models\Hotel;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\Request;
 
 final class EditController extends Controller
 {
     public function __invoke(Hotel $hotel, EditRequest $request): Responsable
     {
-        $hotel = Hotel::findOrFail($hotel->getId());
         $hotel->update($request->all());
 
         return new HotelResource($hotel);

@@ -37,7 +37,6 @@
         "trim_array_spaces": true,
         "use_arrow_functions": true,
         "void_return": true,
-        "yoda_style": true,
         "array_push": true,
         "cast_spaces": true,
         "clean_namespace": true,

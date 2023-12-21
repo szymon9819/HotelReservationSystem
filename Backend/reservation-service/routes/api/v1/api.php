@@ -9,4 +9,9 @@ Route::prefix('v1')->name('v1.')->group(function (): void {
      * hotel
      */
     require base_path('routes/api/v1/hotels.php');
+
+    /**
+     * reservation
+     */
+    require base_path('routes/api/v1/reservations.php');
 });

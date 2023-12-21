@@ -11,8 +11,8 @@ use Illuminate\Contracts\Support\Responsable;
 
 final class ShowController extends Controller
 {
-    public function __invoke($id): Responsable
+    public function __invoke(Hotel $hotel): Responsable
     {
-        return new HotelResource(Hotel::findOrFail($id));
+        return new HotelResource($hotel);
     }
 }
