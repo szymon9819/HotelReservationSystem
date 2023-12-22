@@ -7,17 +7,19 @@ namespace App\Http\Controllers\V1\Reservation;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Reservation\IndexRequest;
 use App\Http\Resources\V1\ReservationResource;
-use App\Models\Reservation;
+use App\Services\Reservation\ReservationService;
 use Illuminate\Contracts\Support\Responsable;
 
 final class IndexController extends Controller
 {
+    public function __construct(
+        private readonly ReservationService $reservationService
+    ) {
+    }
+
     public function __invoke(IndexRequest $request): Responsable
     {
-        $reservations = Reservation::query()->paginate(
-            perPage: $request->getLimit(),
-            page: $request->hasPage() ? $request->getPage() : null
-        );
+        $reservations = $this->reservationService->getPaginatedByContract($request, $request);
 
         return ReservationResource::collection($reservations);
     }

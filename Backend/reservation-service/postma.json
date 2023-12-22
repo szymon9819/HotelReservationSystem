@@ -1,0 +1,404 @@
+{
+  "info": {
+    "_postman_id": "562a50dd-a887-48b4-9fa6-f2d8b75c42dc",
+    "name": "HotelReservationService",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12242862"
+  },
+  "item": [
+    {
+      "name": "Hotels",
+      "item": [
+        {
+          "name": "Get All Hotels",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/hotels",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hotels"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Hotel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/hotels",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hotels"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Hotel",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/hotels/{hotel}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hotels",
+                "{{hotel}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Hotel",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/hotels/{hotel}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hotels",
+                "{{hotel}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Hotel",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/hotels/{hotel}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "hotels",
+                "{{hotel}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "item": [
+        {
+          "name": "Get All Reservations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/reservations",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reservations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Reservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/reservations",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reservations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Reservation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/reservations/{reservation}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reservations",
+                "{{reservation}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Reservation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/reservations/{reservation}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reservations",
+                "{{reservation}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Reservation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/reservations/{reservation}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reservations",
+                "{{reservation}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Room Cart",
+      "item": [
+        {
+          "name": "Get Room Cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/room-cart",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "room-cart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Item to Room Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/room-cart/add",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "room-cart",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clear Room Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/room-cart/clear",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "room-cart",
+                "clear"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Item from Room Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/api/v1/room-cart/remove-item",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "room-cart",
+                "remove-item"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

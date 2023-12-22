@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Providers\Repositories\ReservationRepositoryProvider;
+use App\Providers\Repositories\RoomAvailabilityRepositoryProvider;
+use App\Providers\Services\RedisLockingServiceProvider;
+use App\Providers\Services\RoomCartServiceProvider;
+use App\Providers\Services\RoomLockingServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -170,6 +175,19 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+        * Service providers
+        */
+        RedisLockingServiceProvider::class,
+        RoomLockingServiceProvider::class,
+        RoomCartServiceProvider::class,
+
+        /*
+        * Repositories providers
+        */
+        RoomAvailabilityRepositoryProvider::class,
+        ReservationRepositoryProvider::class,
     ])->toArray(),
 
     /*

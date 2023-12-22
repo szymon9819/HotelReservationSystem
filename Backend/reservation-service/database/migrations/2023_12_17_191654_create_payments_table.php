@@ -18,7 +18,7 @@ return new class () extends Migration {
             $table->enum('status', PaymentStatus::getValues())->default(PaymentStatus::CREATED);
             $table->timestamps();
 
-            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
         });
     }
 

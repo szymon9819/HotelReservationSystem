@@ -19,7 +19,7 @@ return new class () extends Migration {
             $table->text('description')->nullable();
             $table->timestamps();
 
-            $table->foreign('hotel_id')->references('id')->on('hotels');
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
         });
     }
 
