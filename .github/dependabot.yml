@@ -2,6 +2,6 @@
 version: 2
 updates:
   - package-ecosystem: "composer"
-    directory: "/"
+    directory: "/Backend/reservation-service"
     schedule:
       interval: "weekly"
