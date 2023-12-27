@@ -21,14 +21,21 @@ class CartEntity implements Arrayable
 
     public function getItems(): array
     {
-        return array_keys($this->items);
+        return array_map(
+            fn (int $id, int $quantity): CartItem => new CartItem($id, $quantity),
+            array_keys($this->items),
+            $this->items
+        );
     }
 
     public function toArray(): array
     {
         return [
             'customer_id' => $this->getCustomerId(),
-            'items' => $this->getItems(),
+            'items' => array_map(
+                fn (CartItem $item): array => $item->toArray(),
+                $this->getItems()
+            ),
         ];
     }
 }

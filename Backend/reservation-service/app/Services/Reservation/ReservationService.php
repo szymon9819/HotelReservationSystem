@@ -6,6 +6,7 @@ namespace App\Services\Reservation;
 
 use App\Contracts\Reservation\CreateReservationContract;
 use App\Contracts\Reservation\GetReservationsContract;
+use App\Entities\CartItem;
 use App\Exceptions\Reservation\ReservationCreationException;
 use App\Http\Requests\Pagination\PaginationInterface;
 use App\Repositories\Reservation\ReservationRepositoryInterface;
@@ -33,8 +34,9 @@ class ReservationService
         try {
             DB::beginTransaction();
 
-            foreach ($cart->getItems() as $roomId) {
-                $this->reservationRepository->createFromContractAndRoomId($contract, $roomId);
+            /** @var CartItem $item */
+            foreach ($cart->getItems() as $item) {
+                $this->reservationRepository->createFromContractAndRoomId($contract, $item->getItemId());
             }
 
             $this->cartService->clearCart($contract->getCustomerId());
