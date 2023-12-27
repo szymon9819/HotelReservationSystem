@@ -14,7 +14,7 @@ use Tests\Feature\TestCase;
 
 class ReservationServiceTest extends TestCase
 {
-    public function testCreateReservationsByContractSuccessfully(): void
+    public function test_createReservationsByContract_successfully(): void
     {
         $customerId = 1;
         $cartService = $this->createMock(RoomCartServiceInterface::class);
