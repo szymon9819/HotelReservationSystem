@@ -28,8 +28,13 @@ class ReservationRepository implements ReservationRepositoryInterface
             'room_id' => $roomId,
             'start_date' => $contract->getStartData(),
             'end_date' => $contract->getEndData(),
-            'status' => ReservationStatus::ACTIVE,
+            'status' => ReservationStatus::AWAITING_FOR_PAYMENT,
         ]);
+    }
+
+    public function update(int $reservationId, array $values): void
+    {
+        $this->entity->query()->where('id', $reservationId)->update($values);
     }
 
     public function getByContract(GetReservationsContract $contract): Collection

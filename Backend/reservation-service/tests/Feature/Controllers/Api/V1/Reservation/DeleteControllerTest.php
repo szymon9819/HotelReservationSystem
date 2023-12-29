@@ -18,7 +18,7 @@ class DeleteControllerTest extends TestCase
         ]));
 
         $response->assertOk();
-        $this->assertDatabaseMissing('reservations', ['id' => $reservation->id]);
+        $this->assertDatabaseMissing('reservations', ['id' => $reservation->getId()]);
     }
 
     public function test_delete_returns_404_for_non_existing_reservation(): void

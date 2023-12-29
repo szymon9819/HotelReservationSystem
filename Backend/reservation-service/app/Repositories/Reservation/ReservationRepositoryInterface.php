@@ -15,6 +15,8 @@ interface ReservationRepositoryInterface
 {
     public function createFromContractAndRoomId(CreateReservationContract $contract, int $roomId): Reservation;
 
+    public function update(int $reservationId, array $values): void;
+
     public function getByContract(GetReservationsContract $contract): Collection;
 
     public function getPaginatedByContract(GetReservationsContract $contract, PaginationInterface $pagination): LengthAwarePaginator;

@@ -16,7 +16,7 @@ class ShowControllerTest extends TestCase
         $response = $this->get(route('api.v1.reservations.show', ['reservation' => $reservation]));
 
         $response->assertOk()->assertJsonFragment([
-            'id' => $reservation->id,
+            'id' => $reservation->getId(),
             'customer_id' => $reservation->customer_id,
             'room_id' => $reservation->room_id,
             'status' => $reservation->status,

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Providers\RabbitMQServiceProvider;
 use App\Providers\Repositories\ReservationRepositoryProvider;
 use App\Providers\Repositories\RoomAvailabilityRepositoryProvider;
 use App\Providers\Services\RedisLockingServiceProvider;
@@ -175,6 +176,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+        * RabbitMQ
+        */
+        RabbitMQServiceProvider::class,
 
         /*
         * Service providers

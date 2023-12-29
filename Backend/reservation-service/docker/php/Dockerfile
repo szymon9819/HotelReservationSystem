@@ -2,12 +2,12 @@ FROM php:8.2.11-fpm-alpine3.18
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
-      $PHPIZE_DEPS libpng-dev libzip-dev rabbitmq-c rabbitmq-c-dev \
+      $PHPIZE_DEPS libpng-dev libzip-dev rabbitmq-c rabbitmq-c-dev linux-headers \
     ; \
     apk add --no-cache bash openssl tzdata unzip; \
     pecl install redis amqp; \
     docker-php-ext-enable redis amqp; \
-    docker-php-ext-install pcntl pdo pdo_mysql gd zip exif; \
+    docker-php-ext-install pcntl pdo pdo_mysql gd zip exif sockets; \
     runDeps="$( \
         scanelf --needed --nobanner --format '%n#p' --recursive /usr/local \
             | tr ',' '\n' \
