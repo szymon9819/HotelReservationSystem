@@ -10,7 +10,7 @@ class RoomLockingService implements RoomLockingServiceInterface
 {
     private const ROOM_LOCK_TTL_IN_SECONDS = 300;
 
-    private const ROOM_LOCK_KEY_NAME = 'room_reservation_';
+    private const ROOM_LOCK_KEY_NAME = 'room:reservation:';
 
     public function __construct(
         private readonly LockingServiceInterface $lockingService

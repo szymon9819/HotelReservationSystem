@@ -7,8 +7,12 @@ namespace App\Services\Reservation;
 use App\Contracts\Reservation\CreateReservationContract;
 use App\Contracts\Reservation\GetReservationsContract;
 use App\Entities\CartItem;
+use App\Enums\ReservationStatus;
 use App\Exceptions\Reservation\ReservationCreationException;
 use App\Http\Requests\Pagination\PaginationInterface;
+use App\Messaging\Producers\ReservationCanceledProducer;
+use App\Messaging\Producers\ReservationCreatedProducer;
+use App\Models\Reservation;
 use App\Repositories\Reservation\ReservationRepositoryInterface;
 use App\Services\RoomCart\RoomCartServiceInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -20,6 +24,8 @@ class ReservationService
 {
     public function __construct(
         private readonly RoomCartServiceInterface $cartService,
+        private readonly ReservationCreatedProducer $reservationCreated,
+        private readonly ReservationCanceledProducer $canceledProducer,
         private readonly ReservationRepositoryInterface $reservationRepository
     ) {
     }
@@ -36,10 +42,12 @@ class ReservationService
 
             /** @var CartItem $item */
             foreach ($cart->getItems() as $item) {
-                $this->reservationRepository->createFromContractAndRoomId($contract, $item->getItemId());
-            }
+                $reservation = $this->reservationRepository->createFromContractAndRoomId($contract, $item->getItemId());
 
+                $this->reservationCreated->publishMessage($reservation);
+            }
             $this->cartService->clearCart($contract->getCustomerId());
+
             DB::commit();
         } catch (Throwable) {
             DB::rollback();
@@ -56,5 +64,14 @@ class ReservationService
     public function getPaginatedByContract(GetReservationsContract $contract, PaginationInterface $pagination): LengthAwarePaginator
     {
         return $this->reservationRepository->getPaginatedByContract($contract, $pagination);
+    }
+
+    public function cancel(Reservation $reservation): void
+    {
+        $this->reservationRepository->update($reservation->getId(), [
+            'status' => ReservationStatus::CANCELLED,
+        ]);
+
+        $this->canceledProducer->publishMessage($reservation);
     }
 }

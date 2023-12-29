@@ -11,6 +11,7 @@ return [
     'reservation' => [
         'created_successfully' => 'Reservations created successfully',
         'creation_failed' => 'Error occurred while creating reservations',
+        'cancelled' => 'Reservations cancelled',
     ],
     'cart' => [
         'empty' => 'Your cart is empty',
