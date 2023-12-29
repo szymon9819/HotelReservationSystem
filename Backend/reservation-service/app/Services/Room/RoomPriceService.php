@@ -10,6 +10,6 @@ class RoomPriceService
 {
     public function getPriceForReservation(Reservation $reservation): float
     {
-        return $reservation->getNumberOfDaysAttribute() * $reservation->room->price_per_night;
+        return $reservation->getNumberOfDays() * $reservation->room->price_per_night;
     }
 }

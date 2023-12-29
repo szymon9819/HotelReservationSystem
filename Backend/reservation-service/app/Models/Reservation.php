@@ -50,7 +50,7 @@ class Reservation extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function getNumberOfDaysAttribute(): int
+    public function getNumberOfDays(): int
     {
         $startDate = Carbon::parse($this->start_date);
         $endDate = Carbon::parse($this->end_date);
