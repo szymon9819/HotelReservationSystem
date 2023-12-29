@@ -8,9 +8,7 @@ use App\Messaging\Enums\ExchangeName;
 use App\Messaging\Enums\ExchangeType;
 use App\Messaging\Enums\RoutingKey;
 use App\Messaging\Producers\ReservationCanceledProducer;
-use App\Messaging\Producers\ReservationCreatedProducer;
 use App\Models\Reservation;
-use App\Services\Room\RoomPriceService;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -68,7 +66,7 @@ class ReservationCanceledProducerTest extends TestCase
                 false
             );
 
-        $this->reservationMock->expects($this->any())
+        $this->reservationMock->expects($this->once())
             ->method('getId')
             ->willReturn(1);
 
@@ -77,7 +75,7 @@ class ReservationCanceledProducerTest extends TestCase
             ->with(
                 $this->isInstanceOf(AMQPMessage::class),
                 ExchangeName::RESERVATION,
-                RoutingKey::RESERVATION_CREATED
+                RoutingKey::RESERVATION_CANCELLED
             );
 
         $this->reservationCanceledProducer->publishMessage($this->reservationMock);

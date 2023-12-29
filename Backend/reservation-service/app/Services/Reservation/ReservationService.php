@@ -47,6 +47,7 @@ class ReservationService
                 $this->reservationCreated->publishMessage($reservation);
             }
             $this->cartService->clearCart($contract->getCustomerId());
+
             DB::commit();
         } catch (Throwable) {
             DB::rollback();

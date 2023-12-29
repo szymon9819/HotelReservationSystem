@@ -71,11 +71,11 @@ class ReservationCreatedProducerTest extends TestCase
                 false
             );
 
-        $this->reservationMock->expects($this->any())
+        $this->reservationMock->expects($this->once())
             ->method('getId')
             ->willReturn(1);
 
-        $this->priceServiceMock->expects($this->any())
+        $this->priceServiceMock->expects($this->once())
             ->method('getPriceForReservation')
             ->willReturn(100.0);
 

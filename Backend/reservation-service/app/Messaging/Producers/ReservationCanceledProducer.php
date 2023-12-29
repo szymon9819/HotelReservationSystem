@@ -14,7 +14,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 class ReservationCanceledProducer
 {
-    private AMQPChannel $channel;
+    private readonly AMQPChannel $channel;
 
     public function __construct(
         private readonly AMQPStreamConnection $connection,

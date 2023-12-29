@@ -11,13 +11,11 @@ class RabbitMQServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(AMQPStreamConnection::class, function (): AMQPStreamConnection {
-            return new AMQPStreamConnection(
-                config('rabbitmq.host'),
-                config('rabbitmq.port'),
-                config('rabbitmq.user'),
-                config('rabbitmq.password')
-            );
-        });
+        $this->app->singleton(AMQPStreamConnection::class, fn (): AMQPStreamConnection => new AMQPStreamConnection(
+            config('rabbitmq.host'),
+            config('rabbitmq.port'),
+            config('rabbitmq.user'),
+            config('rabbitmq.password')
+        ));
     }
 }
