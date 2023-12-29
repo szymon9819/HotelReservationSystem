@@ -84,9 +84,4 @@ class Reservation extends Model
 
         return $startDate->diffInDays($endDate);
     }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
 }
