@@ -1,4 +1,4 @@
-FROM php:8.2.11-fpm-alpine3.18
+FROM php:8.3.2RC1-fpm-alpine3.19
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
