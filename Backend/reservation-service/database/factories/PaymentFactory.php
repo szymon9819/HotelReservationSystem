@@ -8,11 +8,13 @@ use App\Enums\PaymentStatus;
 use App\Models\Payment;
 use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Override;
 
 final class PaymentFactory extends Factory
 {
     protected $model = Payment::class;
 
+    #[Override]
     public function definition(): array
     {
         return [

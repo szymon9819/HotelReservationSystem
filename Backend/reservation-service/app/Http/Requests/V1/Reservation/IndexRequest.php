@@ -7,9 +7,11 @@ namespace App\Http\Requests\V1\Reservation;
 use App\Contracts\Reservation\GetReservationsContract;
 use App\Enums\ReservationStatus;
 use App\Http\Requests\Pagination\BasePaginationRequest;
+use Override;
 
 class IndexRequest extends BasePaginationRequest implements GetReservationsContract
 {
+    #[Override]
     public function rules(): array
     {
         return [
