@@ -63,14 +63,6 @@ class Reservation extends Model
         return $this->id;
     }
 
-    public function getNumberOfDaysAttribute(): int
-    {
-        $startDate = Carbon::parse($this->start_date);
-        $endDate = Carbon::parse($this->end_date);
-
-        return $startDate->diffInDays($endDate);
-    }
-
     protected function startDate(): Attribute
     {
         return Attribute::make(
