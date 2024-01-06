@@ -58,10 +58,6 @@ services:
         ports:
             - '${FORWARD_DATABASE_TEST_PORT:-3306}:3306'
 
-volumes:
-    cache:
-        driver: local
-
 networks:
     reservation_service_network:
         driver: bridge

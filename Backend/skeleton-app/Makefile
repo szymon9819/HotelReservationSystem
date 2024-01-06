@@ -1,7 +1,6 @@
 APP_CONTAINER_NAME := app_example
 MYSQL_CONTAINER_NAME := db_example
 MYSQL_TEST_CONTAINER_NAME := db_test_example
-REDIS_CONTAINER_NAME := cache_example
 
 build:
 	docker-compose build
