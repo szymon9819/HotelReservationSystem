@@ -1,7 +1,6 @@
 APP_CONTAINER_NAME := reservation_app
 MYSQL_CONTAINER_NAME := reservation_service_db
 MYSQL_TEST_CONTAINER_NAME := reservation_service_db_test
-REDIS_CONTAINER_NAME := reservation_service_redis
 
 build:
 	docker-compose build

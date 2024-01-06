@@ -1,0 +1,10 @@
+[2023-10-02 18:43:54] local.ERROR: require(/app/routes/console.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): require(/app/routes/console.php): Failed to open stream: No such file or directory at /app/app/Console/Kernel.php:25)
+[stacktrace]
+#0 /app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(254): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'require(/app/ro...', '/app/app/Consol...', 25)
+#1 /app/app/Console/Kernel.php(25): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'require(/app/ro...', '/app/app/Consol...', 25)
+#2 /app/app/Console/Kernel.php(25): require('/app/vendor/lar...')
+#3 /app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(453): App\\Console\\Kernel->commands()
+#4 /app/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#5 /app/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 {main}
+"} 
