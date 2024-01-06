@@ -75,7 +75,8 @@ class ReservationServiceTest extends TestCase
     private function mockCartItem(int $customerId): CartEntity
     {
         return new CartEntity(
-            $customerId, [
+            $customerId,
+            [
                 '1' => 1,
                 '2' => 1,
                 '3' => 1,
