@@ -9,11 +9,13 @@ use App\Models\Customer;
 use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Override;
 
 final class ReservationFactory extends Factory
 {
     protected $model = Reservation::class;
 
+    #[Override]
     public function definition(): array
     {
         return [

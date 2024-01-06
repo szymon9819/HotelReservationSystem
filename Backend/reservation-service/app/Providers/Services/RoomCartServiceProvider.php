@@ -9,9 +9,11 @@ use App\Services\RoomCart\RoomCartService;
 use App\Services\RoomCart\RoomCartServiceInterface;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\ServiceProvider;
+use Override;
 
 final class RoomCartServiceProvider extends ServiceProvider
 {
+    #[Override]
     public function register(): void
     {
         $this->app->bind(RoomCartServiceInterface::class, function (): RoomCartService {

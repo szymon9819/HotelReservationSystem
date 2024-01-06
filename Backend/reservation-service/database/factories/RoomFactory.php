@@ -8,11 +8,13 @@ use App\Enums\RoomType;
 use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Override;
 
 final class RoomFactory extends Factory
 {
     protected $model = Room::class;
 
+    #[Override]
     public function definition(): array
     {
         return [

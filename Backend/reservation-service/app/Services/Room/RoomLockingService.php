@@ -8,9 +8,9 @@ use App\Services\DistributedLock\LockingServiceInterface;
 
 class RoomLockingService implements RoomLockingServiceInterface
 {
-    private const ROOM_LOCK_TTL_IN_SECONDS = 300;
+    private const int ROOM_LOCK_TTL_IN_SECONDS = 300;
 
-    private const ROOM_LOCK_KEY_NAME = 'room:reservation:';
+    private const string ROOM_LOCK_KEY_NAME = 'room:reservation:';
 
     public function __construct(
         private readonly LockingServiceInterface $lockingService
