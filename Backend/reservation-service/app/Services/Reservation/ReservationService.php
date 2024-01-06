@@ -49,7 +49,7 @@ class ReservationService
             $this->cartService->clearCart($contract->getCustomerId());
 
             DB::commit();
-        } catch (Throwable) {
+        } catch (Throwable $e) {
             DB::rollback();
 
             throw new ReservationCreationException();
