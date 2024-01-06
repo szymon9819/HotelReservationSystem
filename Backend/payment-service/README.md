@@ -77,3 +77,34 @@ Continue with the following steps, as mentioned previously in the README file:
 - Copy this skeleton project as a starting point for creating a new microservices-based project.
 - Review the mentioned files and adjust variables and configurations to fit your new project requirements.
 - Make sure to read through the documentation in each file to fully understand which sections need modification.
+
+
+## Initial Setup Steps
+
+To install and set up the application, follow these steps:
+
+1. Build the Docker containers by running the following command:
+  - Run the following command to build the Docker containers:
+      ```shell script
+        make build
+      ```
+  - Run docker containers, use:
+      ```shell script
+        make start
+      ```
+  - To enter the Docker container's shell for further configuration, use:
+      ```shell script
+        make enter
+      ```
+  - Install Composer dependencies within the container with:
+      ```shell script
+        composer install
+      ```
+  - Generate the Laravel application key using the following command:
+      ```shell script
+        php artisan key:generate
+      ```
+  - If you want to initialize the database and seed it with data, run the following command within the container:
+      ```shell script
+        php artisan migrate --seed
+      ```
