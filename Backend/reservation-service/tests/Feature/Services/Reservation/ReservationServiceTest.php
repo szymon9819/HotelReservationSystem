@@ -23,7 +23,6 @@ class ReservationServiceTest extends TestCase
         $reservationRepoMock = $this->createMock(ReservationRepositoryInterface::class);
         $roomPriceServiceMock = $this->createMock(RoomPriceService::class);
 
-
         $this->app->instance(RoomCartServiceInterface::class, $cartServiceMock);
         $this->app->instance(RoomCartServiceInterface::class, $cartServiceMock);
         $this->app->instance(ReservationRepositoryInterface::class, $reservationRepoMock);
@@ -44,6 +43,7 @@ class ReservationServiceTest extends TestCase
                 ) + 1
             )
         )->method('createFromContractAndRoomId');
+
         $roomPriceServiceMock->expects(
             $this->exactly(
                 count(
