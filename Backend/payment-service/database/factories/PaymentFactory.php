@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use Override;
 use App\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -11,6 +12,7 @@ class PaymentFactory extends Factory
 {
     protected $model = Payment::class;
 
+    #[Override]
     public function definition(): array
     {
         return [
