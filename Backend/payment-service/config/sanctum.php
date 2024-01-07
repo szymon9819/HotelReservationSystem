@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-use App\Http\Middleware\VerifyCsrfToken;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\VerifyCsrfToken;
 
 use Laravel\Sanctum\Sanctum;
 
