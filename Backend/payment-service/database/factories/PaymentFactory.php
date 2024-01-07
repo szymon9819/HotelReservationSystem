@@ -14,7 +14,7 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'merchant_id' => rand(1, 10),
+            'merchant_id' => random_int(1, 10),
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'status' => $this->faker->randomElement(['pending', 'completed', 'failed']),
         ];
