@@ -14,6 +14,7 @@ class Payment extends Model
 
     protected $fillable = [
         'merchant_id',
+        'reservation_id',
         'amount',
         'status',
     ];
