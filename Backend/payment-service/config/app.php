@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Providers\RabbitMQServiceProvider;
+use App\Providers\Repositories\PaymentRepositoryServiceProvider;
+use App\Providers\Services\PaymentProcessingServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -170,6 +173,23 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+        * RabbitMQ
+        */
+        RabbitMQServiceProvider::class,
+
+        /*
+        * Services
+        */
+        PaymentProcessingServiceProvider::class,
+
+        /*
+        * Repositories
+        */
+        PaymentRepositoryServiceProvider::class,
+
+
     ])->toArray(),
 
     /*

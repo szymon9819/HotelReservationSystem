@@ -12,6 +12,7 @@ return new class () extends Migration {
         Schema::create('payments', function (Blueprint $table): void {
             $table->id();
             $table->unsignedBigInteger('merchant_id');
+            $table->unsignedBigInteger('reservation_id');
             $table->decimal('amount', 10, 2);
             $table->string('status')->default('pending');
             $table->timestamps();
