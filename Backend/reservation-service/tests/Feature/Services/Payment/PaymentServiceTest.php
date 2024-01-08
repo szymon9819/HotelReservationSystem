@@ -4,17 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Services\Payment;
 
-use App\Contracts\Reservation\CreateReservationContract;
-use App\Entities\CartEntity;
 use App\Enums\PaymentStatus;
 use App\Enums\ReservationStatus;
 use App\Messaging\Entities\Payments\Payment;
 use App\Repositories\Reservation\ReservationRepositoryInterface;
 use App\Services\Payment\PaymentService;
-use App\Services\Reservation\ReservationService;
-use App\Services\Room\RoomPriceService;
-use App\Services\RoomCart\RoomCartServiceInterface;
-use Illuminate\Support\Carbon;
 use Tests\Feature\TestCase;
 
 class PaymentServiceTest extends TestCase
