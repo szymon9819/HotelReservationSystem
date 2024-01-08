@@ -12,6 +12,7 @@ enum ReservationStatus: string
 
     case ACTIVE = 'active';
     case AWAITING_FOR_PAYMENT = 'awaiting_for_payment';
+    case PAYMENT_FAILED = 'payment_failed';
     case COMPLETED = 'completed';
     case CANCELLED = 'cancelled';
 }

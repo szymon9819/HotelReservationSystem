@@ -27,6 +27,7 @@ class RoomCartService implements RoomCartServiceInterface
         }
 
         $this->roomLockingService->acquireRoomLock($roomId);
+
         $this->redisConnection->hIncrBy($this->getCartKey($customerId), $roomId, $quantity);
     }
 
@@ -37,6 +38,8 @@ class RoomCartService implements RoomCartServiceInterface
 
     public function removeFromCart(int $customerId, int $roomId): void
     {
+        $this->roomLockingService->releaseRoomLock($roomId);
+
         $this->redisConnection->hDel($this->getCartKey($customerId), $roomId);
     }
 
@@ -49,6 +52,10 @@ class RoomCartService implements RoomCartServiceInterface
 
     public function clearCart(int $customerId): void
     {
+        $roomIds = array_keys($this->redisConnection->hGetAll($this->getCartKey($customerId)));
+
+        $this->roomLockingService->releaseRoomLockByRoomIds($roomIds);
+
         $this->redisConnection->del($this->getCartKey($customerId));
     }
 

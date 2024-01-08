@@ -10,8 +10,7 @@ enum PaymentStatus: string
 {
     use EnumValuesAccessor;
 
-    case CREATED = 'created';
-    case PAID = 'paid';
     case PENDING = 'pending';
-    case CANCELLED = 'cancelled';
+    case COMPLETED = 'completed';
+    case FAILED = 'failed';
 }
