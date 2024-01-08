@@ -8,11 +8,11 @@ use App\Enums\PaymentStatus;
 use App\Models\Payment;
 use App\Repositories\PaymentRepositoryInterface;
 
-readonly class PaymentProcessingService implements PaymentProcessingServiceInterface
+class PaymentProcessingService implements PaymentProcessingServiceInterface
 {
     public function __construct(
-        private PaymentRepositoryInterface $repository,
-        private RandomNumberGenerator $numberGenerator
+        private readonly PaymentRepositoryInterface $repository,
+        private readonly RandomNumberGenerator $numberGenerator
     ) {
     }
 

@@ -27,4 +27,14 @@ class Payment extends Model
     protected $attributes = [
         'status' => PaymentStatus::PENDING,
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getStatus(): PaymentStatus
+    {
+        return $this->status;
+    }
 }
