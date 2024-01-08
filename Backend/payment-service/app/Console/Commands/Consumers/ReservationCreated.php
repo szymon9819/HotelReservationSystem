@@ -7,7 +7,7 @@ namespace App\Console\Commands\Consumers;
 use App\Messaging\Entities\ReservationCreated as ReservationEntity;
 use App\Messaging\Enums\ExchangeName;
 use App\Messaging\Enums\RoutingKey;
-use App\Services\ReservationCreatedService;
+use App\Services\Reservations\ReservationCreatedService;
 use Illuminate\Console\Command;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
