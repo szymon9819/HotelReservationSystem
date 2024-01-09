@@ -10,5 +10,7 @@ interface RoomLockingServiceInterface
 
     public function releaseRoomLock(int $roomId): void;
 
+    public function releaseRoomLockByRoomIds(array $roomIds): void;
+
     public function checkRoomLockExists(int $roomId): bool;
 }

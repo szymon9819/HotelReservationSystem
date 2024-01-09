@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\DistributedLock;
 
 use Illuminate\Redis\Connections\Connection;
+use Override;
 
 class RedisLockingService implements LockingServiceInterface
 {
@@ -13,26 +14,24 @@ class RedisLockingService implements LockingServiceInterface
     ) {
     }
 
-    public function acquireLock(string $lockKey, int $ttlInSeconds): bool
+    public function acquireLock(string $lockKey, int $elementId, int $ttlInSeconds): bool
     {
-        $lockValue = uniqid();
-
-        $lockAcquired = $this->redisConnection->setnx($lockKey, $lockValue);
-
-        if ($lockAcquired) {
-            $this->redisConnection->expire($lockKey, $ttlInSeconds);
-        }
-
-        return (bool) $lockAcquired;
+        return (bool) $this->redisConnection->sadd($lockKey, $elementId);
     }
 
-    public function checkLockExists(string $lockKey): bool
+    public function checkLockExists(string $lockKey, int $elementId): bool
     {
-        return (bool) $this->redisConnection->exists($lockKey);
+        return (bool) $this->redisConnection->sismember($lockKey, $elementId);
     }
 
-    public function releaseLock(string $lockKey): void
+    public function releaseLock(string $lockKey, int $elementId): void
     {
-        $this->redisConnection->del($lockKey);
+        $this->redisConnection->srem($lockKey, $elementId);
+    }
+
+    #[Override]
+    public function releaseRoomLockByKeys(string $lockKey, array $keys): void
+    {
+        $this->redisConnection->srem($lockKey, ...$keys);
     }
 }

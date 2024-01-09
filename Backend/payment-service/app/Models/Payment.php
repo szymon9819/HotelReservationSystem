@@ -33,6 +33,11 @@ class Payment extends Model
         return $this->id;
     }
 
+    public function getReservationId(): int
+    {
+        return $this->reservation_id;
+    }
+
     public function getStatus(): PaymentStatus
     {
         return $this->status;

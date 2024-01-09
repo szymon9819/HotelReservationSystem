@@ -15,7 +15,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('reservation_id');
             $table->decimal('amount', 10, 2);
             $table->date('payment_date');
-            $table->enum('status', PaymentStatus::getValues())->default(PaymentStatus::CREATED);
+            $table->enum('status', PaymentStatus::getValues())->default(PaymentStatus::PENDING);
             $table->timestamps();
 
             $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');

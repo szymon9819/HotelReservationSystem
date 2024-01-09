@@ -27,7 +27,7 @@ final class Payment extends Model
     ];
 
     protected $attributes = [
-        'status' => PaymentStatus::CREATED,
+        'status' => PaymentStatus::PENDING,
     ];
 
     public function reservation(): BelongsTo

@@ -43,6 +43,7 @@ class SuccessfulPaymentProducer
     {
         return new AMQPMessage(json_encode([
             'payment_id' => $payment->getId(),
+            'reservation_id' => $payment->getReservationId(),
             'status' => $payment->getStatus(),
         ]));
     }
